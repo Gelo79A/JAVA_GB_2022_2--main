@@ -127,15 +127,13 @@ public class Client extends JFrame implements ActionListener, Thread.UncaughtExc
         if (ste.length == 0)
             msg = "Empty Stacktrace";
         else {
-            msg = String.format("Exception in \"%s\" %s: %s\n\tat %s",
-                    t.getName(), e.getClass().getCanonicalName(), e.getMessage(),
-                   JOptionPane.showMessageDialog(this, msg, "Exception", JOptionPane.ERROR_MESSAGE));
-        }
-        JOptionPane.showMessageDialog(null, msg, "Exception",
-         JOptionPane.ERROR_MESSAGE);
-        }
 
-    
+            msg = String.format("Exception in \"%s\" %s: %s\n\tat %s",
+                    t.getName(), e.getClass().getCanonicalName(), e.getMessage(), ste[0]);
+            JOptionPane.showMessageDialog(this, msg, "Exception", JOptionPane.ERROR_MESSAGE);
+        }
+        JOptionPane.showMessageDialog(null, msg, "Exception", JOptionPane.ERROR_MESSAGE);
+        }
 
     @Override
     public void uncaughtException(Thread t, Throwable e) {
